@@ -1,0 +1,195 @@
+/* =========================================================
+   📂 SIDEBAR
+========================================================= */
+.sidebar {
+  background: #fdfaff; /* putih keunguan */
+  width: 70px; /* default kecil */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(139, 76, 218, 0.1);
+  padding: 20px 14px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  z-index: 1001;
+  overflow-x: hidden;
+}
+
+/* Sidebar open */
+.sidebar.open {
+  width: 220px;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+  margin: 10px 0 20px 0;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #8b39b7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: #faf5ff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(124, 58, 237, 0.08);
+  transition: all 0.3s ease;
+}
+.sidebar-toggle:hover {
+  background: #ede9fe;
+  color: #7a30a1;
+  transform: scale(1.05);
+}
+
+/* Sidebar navigation links */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b21a8;
+  background: #faf5ff;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 4px rgba(124, 58, 237, 0.05);
+  white-space: nowrap;
+}
+.nav-link i {
+  font-size: 1.3rem;
+  min-width: 28px;
+  text-align: center;
+}
+.nav-link span {
+  opacity: 0;
+  visibility: hidden;
+  margin-left: 10px;
+  transition: all 0.25s ease;
+}
+.sidebar.open .nav-link span {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hover & Active states */
+.nav-link:hover {
+  background: #ede9fe;
+  color: #742b9b;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.1);
+}
+.nav-link.active {
+  background: #9f46cf;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.2);
+}
+
+/* Sidebar bottom (Logout button) */
+.sidebar-bottom {
+  margin-top: auto;
+  margin-bottom: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #f0e7ff;
+}
+.sidebar-bottom a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #b91c1c;
+  background: #fef2f2;
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.sidebar-bottom a i {
+  min-width: 28px;
+  text-align: center;
+}
+.sidebar-bottom span {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+.sidebar.open .sidebar-bottom span {
+  opacity: 1;
+  visibility: visible;
+}
+.sidebar-bottom a:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  transform: translateX(4px);
+}
+/* Modal Overlay */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center; 
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Modal Box */
+.modal-content {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.3s ease forwards;
+}
+
+/* Slide-up effect */
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* Fade-in overlay */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal Actions */
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.modal-actions .btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn.cancel { background: #e5e7eb; color: #374151; }
+.btn.cancel:hover { background: #d1d5db; }
+
+.btn.confirm { background: #ef4444; color: #fff; }
+.btn.confirm:hover { background: #dc2626; }

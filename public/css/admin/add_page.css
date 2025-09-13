@@ -1,0 +1,223 @@
+/* ===== GLOBAL ===== */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f7f7f8;
+  margin: 0;
+  color: #0f172a;
+}
+
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  flex: 1;
+  padding: 3px 40px;
+  padding-top: 0;
+  margin-left: 70px;
+  transition: margin-left 0.3s ease;
+  background: #fafbfc;
+}
+.top-navbar h1, 
+.top-navbar h2, 
+.top-navbar h3 {
+  margin: 0;  
+  line-height: 1.2;
+}
+@media (max-width: 950px) { .main-content { margin-left: 0; } }
+
+/* ===== CONTENT (Form & Card) ===== */
+.content { display: block; padding-bottom: 50px }
+
+.card {
+  background: #fff; 
+  border: 1.5px solid #dddee0;
+  border-radius: 16px; 
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+.card > h2 { margin: 0 0 14px; font-size: 16px; color: #111827; }
+
+/* Flex container for photos + details */
+.product-flex-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.photos { flex: 1 1 50%; min-width: 300px; }
+.product-detail { flex: 1 1 50%; min-width: 300px; }
+
+@media (max-width: 1024px) {
+  .product-flex-container { flex-direction: column; }
+  .photos, .product-detail { flex: 1 1 100%; }
+}
+
+/* ===== PHOTO UPLOAD ===== */
+.photo-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+}
+.photo-slot {
+  position: relative; display: grid; place-items: center;
+  border: 1.5px dashed #cbd5e1; border-radius: 12px;
+  min-height: 110px; background: #f8fafc;
+  overflow: hidden; cursor: pointer;
+}
+.photo-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.photo-slot input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.photo-slot.wide { grid-column: 1 / -1; min-height: 64px; }
+.upload-hint { text-align: center; padding: 12px; color: #64748b; font-size: 14px; }
+.upload-hint .cloud { font-size: 20px; margin-bottom: 6px; }
+
+.photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+    .photo-slot {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f9f9f9;
+      cursor: pointer;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .photo-slot:hover {
+      border-color: #9b59b6;
+    }
+    .photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none; /* hidden until upload */
+    }
+    .photo-slot.has-image img {
+      display: block;
+    }
+    .upload-icon {
+      font-size: 2rem;
+      color: #999;
+    }
+    .photo-slot.has-image .upload-icon {
+      display: none;
+    }
+    .photo-slot input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      padding: 2px 6px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+    }
+    .photo-slot.has-image .delete-btn {
+      display: block;
+    }
+/* ===== FORM ELEMENTS ===== */
+.product-detail input,
+.product-detail select,
+.product-detail textarea {
+  width: 95%;   /* slightly smaller width */
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.input-prefix {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  width: 95%;
+}
+.input-prefix .prefix {
+  padding: 10px 12px;
+  background: #f1f5f9;
+  border-right: 1.5px solid #e5e7eb;
+  font-weight: 600;
+}
+.input-prefix input { border: none; flex: 1; padding: 10px 12px; font-size: 14px; }
+
+/* Variasi Produk */
+.variasi-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.variasi-row input {
+  flex: 1;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn.secondary {
+  background: #f3f4f6;
+  color: #333;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+  margin-bottom: 16px;
+}
+.btn.secondary:hover { background: #e5e7eb; }
+
+.form-actions {
+  display: flex; gap: 10px; justify-content: flex-end;
+  margin-top: 24px;
+}
+/* Luncurkan Produk Button */
+.btn.primary {
+  background: #8b39b7;      /* vibrant purple */
+  color: #fff;
+  border: 1.5px solid #8b39b7;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn.primary:hover {
+  background: #7930a0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(124,58,237,0.25);
+}
+
+.btn.primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(124,58,237,0.2);
+}

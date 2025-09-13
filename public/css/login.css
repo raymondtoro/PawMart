@@ -1,0 +1,233 @@
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #c6ffeb, #f0baff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+}
+
+/* Main container with fade-in animation */
+.container {
+    display: flex;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 900px;
+    width: 100%;
+    animation: fadeSlideIn 0.6s ease forwards;
+    opacity: 0; /* Start hidden until animation starts */
+}
+
+/* Left image section */
+.image-section {
+    flex: 1;
+    background: url('../asset/pinkcat.jpg') center/cover no-repeat;
+}
+
+/* Right form section */
+.form-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.error-messages {
+    text-align: center;
+    background-color: #f8d7da;
+    color: rgb(156, 0, 0);
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Hide forms by default */
+form {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(10px);
+}
+
+/* Active form */
+form.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Toggle buttons wrapper */
+/* Toggle container */
+.toggle-buttons {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    margin: 20px auto;
+    background: #f5e9ff;
+    border-radius: 25px;
+    padding: 5px;
+    width: 200px;
+    height: 35px;
+    overflow: hidden;
+}
+
+/* Sliding background */
+.toggle-buttons::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(50% - 5px);
+    height: 35px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+/* Buttons */
+.toggle-buttons button {
+    flex: 1;
+    z-index: 1; /* stays above the slider */
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Active button text color */
+.toggle-buttons button.active {
+    color: #6b21a8;
+}
+
+/* Move slider when admin active */
+.toggle-buttons.admin-active::before {
+    transform: translateX(100%);
+}
+
+
+
+/* Input fields */
+.form-control {
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    background: #fef0fc;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+/* Submit Button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    background: linear-gradient(to right, #e0b3ff, #cafff0);
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #d69fff, #a6ffe5);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn:focus {
+    outline: 2px solid #c6ffeb;
+    outline-offset: 2px;
+}
+
+/* Footer text */
+.footer-text {
+    min-height: 24px; /* keeps consistent height for user */
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.footer-text.hidden {
+    visibility: hidden; /* hides text but keeps the space */
+}
+.footer-text a {
+    color: green;
+    text-decoration: none;
+}
+
+
+/* ===============================
+   Keyframes for Animation
+   =============================== */
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   Responsive Design
+   =============================== */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        max-width: 500px;
+    }
+    .image-section {
+        height: 200px;
+    }
+    .form-section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 22px;
+    }
+    .toggle-buttons button {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+    .form-control {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    .image-section {
+        height: 150px;
+    }
+}

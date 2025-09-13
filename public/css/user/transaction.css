@@ -1,0 +1,150 @@
+:root{
+  --purple: #7c3aed;
+  --purple-dark:#5b21b6;
+  --purple-soft:#ede9fe;
+  --bg:#f7f7fb;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --success:#16a34a;
+  --card:#ffffff;
+  --border:#ececf3;
+}
+
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  padding:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--text);
+  background:linear-gradient(120deg, #d3e9ef 0%, #f4e9fa 50%, #ebc3f7 100%);}
+
+.checkout-wrap{
+  max-width:1100px;
+  margin:32px auto;
+  padding:0 16px;
+  display:grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap:20px;
+}
+@media (max-width:960px){ .checkout-wrap{grid-template-columns:1fr; } }
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Order Card */
+.order-card .card-header{
+  padding:18px 18px 0 18px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.order-card h2{margin:0;font-size:20px}
+.badge{
+  background:var(--purple-soft);
+  color:var(--purple);
+  padding:6px 10px;border-radius:999px;font-weight:600;font-size:12px;
+}
+
+.order-list{padding:10px 14px 0}
+.order-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px;border-radius:12px;border:1px solid var(--border);margin-bottom:10px;
+  background:#fff;
+}
+.order-img{width:54px;height:54px;border-radius:10px;object-fit:cover}
+.order-info{flex:1}
+.order-name{font-weight:600}
+.order-desc{color:var(--muted);font-size:13px;margin-top:2px}
+.order-qty{color:#444;font-size:13px;margin-top:6px}
+.order-price{font-weight:700}
+
+.order-summary {border-top:1px dashed var(--border);
+    background-color: #ffffff; /* White background */
+    border-radius: 12px;       /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 12px 18px 18px;             /* Inner spacing */
+    font-family: 'Arial', sans-serif;
+}.sum-row{display:flex;justify-content:space-between;padding:8px 0;color:#374151}
+.sum-total{display:flex;justify-content:space-between;align-items:center;padding-top:12px;margin-top:8px;border-top:2px solid var(--border);font-weight:700}
+.sum-total-amount{font-size:18px;color:var(--purple-dark)}
+.text-success{color:var(--success)}
+
+/* Pay Card */
+/* Pay Card */
+.pay-card {
+  padding: 18px;
+  max-width: 400px;   /* control its own size */
+  margin: 25px auto;  /* center it under Pesanan if stacked */
+  margin-bottom: 40px;
+  margin-top: 5px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.pay-card h2{margin:0 0 12px}
+
+.method-preview{
+  display:flex;align-items:center;gap:12px;
+  border:1px solid var(--border);border-radius:14px;padding:12px 12px;background:#fff;
+}
+.method-icon{width:40px;height:40px;border-radius:12px;background:var(--purple-soft);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--purple)}
+.method-text{flex:1}
+.method-title{font-weight:600}
+.method-sub{font-size:13px;color:var(--muted)}
+.btn{border:none;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost{background:transparent;color:var(--purple)}
+.btn-primary{background:var(--purple);color:#fff}
+.btn-primary:hover{background:var(--purple-dark)}
+.btn-lg{width:100%;margin-top:14px;padding:14px}
+
+.agree{display:flex;gap:10px;align-items:center;margin:14px 0 4px;font-size:14px;color:#374151}
+.agree input{width:16px;height:16px}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:none}
+.modal[aria-hidden="false"]{display:block}
+.modal-backdrop{position:absolute;inset:0;background:rgba(15,23,42,.4)}
+.modal-panel{
+  position:relative;background:#fff;border-radius:16px;max-width:700px;margin:60px auto;padding:16px;border:1px solid var(--border);
+  animation:zoom .18s ease-out;
+}
+.panel-sm{max-width:520px}
+@keyframes zoom{from{transform:scale(.98);opacity:.6}to{transform:scale(1);opacity:1}}
+
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:6px 4px 12px}
+.icon-btn{border:none;background:transparent;font-size:22px;cursor:pointer;color:#64748b}
+
+.method-groups{max-height:60vh;overflow:auto;padding-right:6px}
+.group{margin:8px 0 16px}
+.group-title{font-weight:700;margin:8px 0 10px;display:flex;gap:8px;align-items:center;color:#4c1d95}
+.method-option{
+  display:flex;align-items:center;gap:12px;border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer;background:#fff;
+}
+.method-option:hover{border-color:#d7d2ff;background:#fbfbff}
+.method-option input{margin-right:2px}
+.option-icon{width:36px;height:36px;border-radius:10px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.option-icon img{width:28px;height:28px;object-fit:contain}
+.option-icon.purple{background:var(--purple-soft);color:var(--purple)}
+.option-text small{color:var(--muted)}
+
+.modal-footer{display:flex;justify-content:flex-end;gap:10px;margin-top:12px}
+
+/* Payment code */
+.code-box{display:flex;flex-direction:column;align-items:center;gap:10px;padding:8px 0}
+.code-meta{font-size:13px;color:var(--muted)}
+.code-value{font-family:ui-monospace, SFMono-Regular, Menlo, monospace;font-size:28px;font-weight:800;background:#f8f7ff;border:1px dashed #dcd6ff;color:#3b0764;padding:10px 16px;border-radius:12px}
+.code-help{margin-top:6px;color:#4b5563;font-size:13px;text-align:center}
+
+/* Error modal content */
+.error-content {
+  text-align: center;
+  padding: 20px;
+}
+.error-content p {
+  margin-top: 8px;
+  font-weight: 500;
+  color: #333;
+}

@@ -1,0 +1,121 @@
+/* FOOTER STYLING */
+.footer {
+    background: rgb(236, 199, 255);
+  padding: 40px 0 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Top 3-column layout */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  border-bottom: 2px solid #dcb9f0;
+  padding-bottom: 40px;
+}
+
+/* Column Dividers */
+.footer-col {
+  padding: 0 20px;
+}
+.footer-col:not(:last-child) {
+  border-right: 2px solid #dcb9f0; /* made thicker */
+}
+
+/* Left + Right columns */
+.footer-col h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #040404;
+}
+
+.footer-col p,
+.footer-col li a {
+  font-size: 14px;
+  color: #121212;
+  margin-bottom: 6px;
+  display: block;
+  text-decoration: none; /* remove underline */
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 6px;
+}
+
+.footer-col ul li a:hover {
+  color: #af44d2;
+  text-decoration: none; /* ensure underline never comes back */
+}
+
+/* Center column */
+.footer-col.center {
+  text-align: center;
+}
+
+.footer-logo img {
+  height: 50px;
+  margin-bottom: 12px;
+}
+
+.footer-desc {
+  font-size: 14px;
+  margin: 0 auto 14px auto;
+  max-width: 280px;
+  line-height: 1.6;
+  color: #3b184e;
+}
+
+/* Social icons */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.footer-social a {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #621686;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-decoration: none; /* remove underline on icons */
+}
+
+.footer-social a:hover {
+  background-color: #d8cae0;
+  transform: scale(1.05);
+}
+
+/* Bottom copyright */
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  color: #4c2064;
+  margin-top: 24px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-col {
+    border-right: none;
+    margin-bottom: 20px;
+  }
+}

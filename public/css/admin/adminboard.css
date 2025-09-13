@@ -1,0 +1,379 @@
+/* =========================================================
+   🌐 GLOBAL STYLES
+========================================================= */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #F7F7F8;
+  margin: 0;
+}
+
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   🔳 SIDEBAR OVERLAY (Mobile)
+========================================================= */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30,20,50,0.12);
+  z-index: 1000;
+}
+
+/* =========================================================
+   📃 MAIN CONTENT AREA
+========================================================= */
+.main-content {
+  flex: 1;
+  padding: 3px 40px;
+  margin-left: 70px;
+  transition: margin-left 0.3s ease;
+  background: #fafbfc;
+}
+@media (max-width: 950px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+
+/* =========================================================
+   🔝 TOP NAVBAR
+========================================================= */
+.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.top-navbar h2 {
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin: 0;
+}
+.user-info {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.icon-bell {
+  font-size: 1.4rem;
+  color: #b1b1b1;
+  background: #f8f8f8;
+  padding: 8px;
+  border-radius: 7px;
+}
+.user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+.user-details .username {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.user-details .role {
+  font-size: 0.9rem;
+  color: #b1b1b1;
+}
+
+/* =========================================================
+   📦 CONTENT BOXES
+========================================================= */
+.content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px 28px;
+  box-shadow: 0 2px 12px #eee;
+}
+
+/* =========================================================
+   📊 SUMMARY CARDS (Dashboard Stats)
+========================================================= */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.section-header .underline {
+  height: 3px;
+  background: #222;
+  border-radius: 3px;
+  margin-top: 8px;
+  max-width: 150px;
+}
+.summary-cards {
+  display: flex;
+  gap: 18px;
+  margin: 30px 0 35px 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.card {
+  position: relative; /* for overlay */
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 25px 26px 25px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 182px;
+  min-height: 98px;
+  cursor: pointer;
+  overflow: hidden;
+
+  /* Smooth lift and shadow transitions */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Pseudo-element for gradient overlay */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #8b39b7, #9d45cd);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 0; /* behind text */
+}
+
+/* Lift + shadow on hover */
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 30px rgba(147, 51, 234, 0.4);
+}
+
+/* Fade in gradient overlay */
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Ensure text stays above gradient */
+.card > * {
+  position: relative;
+  z-index: 1;
+  transition: color 0.6s ease;
+}
+
+/* Text color changes on hover */
+.card:hover .card-title,
+.card:hover .card-value,
+.card:hover .card-growth {
+  color: white;
+}
+.card:hover .card-growth {
+  color: #d8b4fe; /* lighter purple for contrast */
+}
+
+/* Default text styles */
+.card .card-title {
+  font-size: 1.01rem;
+  color: #b1b1b1;
+  font-weight: 600;
+}
+.card .card-value {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #000;
+}
+.card .card-growth {
+  font-size: 1rem;
+  color: #3dd598;
+  font-weight: 600;
+}
+
+
+
+/* =========================================================
+   📐 MAIN FLEX ROW (Wrapper for Widgets)
+========================================================= */
+.main-flex-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   🛒 LATEST ORDERS WIDGET
+========================================================= */
+.latest-orders {
+  flex: 1 1 300px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 22px;
+  box-shadow: 0 1px 6px #eee;
+  display: flex;
+  flex-direction: column;
+}
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 340px;
+  overflow-y: auto;
+}
+.order-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f6f6f6;
+  border-radius: 9px;
+  padding: 11px 16px;
+  font-size: 1.03rem;
+  transition: background 0.2s, transform 0.3s ease;
+  cursor: pointer;
+}
+.order-row:hover {
+  background: #ede9fe;
+  color: #8b39b7;
+  transform: translateX(5px);
+}
+.order-row .desc {
+  color: #b1b1b1;
+  font-size: 0.92rem;
+}
+.order-date {
+  text-align: right;
+  font-size: 0.98rem;
+}
+.order-date .price {
+  font-weight: 700;
+  color: #9840c7;
+}
+.dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #b1b1b1;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+.orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.orders-header h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.see-all {
+  font-size: 14px;
+  color: #8b39b7;
+  text-decoration: none;
+  font-weight: 500;
+}
+.see-all i {
+  vertical-align: middle;
+}
+
+/* =========================================================
+   📦 INVENTORY REPORT WIDGET
+========================================================= */
+.inventory-report {
+  flex: 2 1 500px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 22px;
+  box-shadow: 0 1px 6px #eee;
+  display: flex;
+  flex-direction: column;
+}
+.report-header h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+}
+.report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.report-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: #f9f9f9;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.3s ease;
+  cursor: pointer;
+}
+.report-row:hover {
+  background: #ede9fe;
+  transform: translateX(5px);
+}
+.report-row > span:first-child {
+  flex: 1 1 120px;
+  font-size: 1rem;
+}
+.report-row .progress-bar {
+  flex: 0 0 110px;
+  background: #f6f6f6;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.report-row .progress-bar div {
+  height: 100%;
+  background: #943ec2;
+  transition: width 0.5s ease;
+}
+.report-row .right {
+  flex: 0 0 36px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* =========================================================
+   🌟 ANIMATIONS
+========================================================= */
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Apply slide-up animation to summary cards, orders, and reports */
+.order-row, .report-row, .summary-card-row {
+  opacity: 0;
+  animation: slideUp 0.5s forwards;
+}
+
+/* Stagger animation */
+.order-row:nth-child(1), .report-row:nth-child(1), .summary-card-row:nth-child(1) { animation-delay: 0.05s; }
+.order-row:nth-child(2), .report-row:nth-child(2), .summary-card-row:nth-child(2) { animation-delay: 0.10s; }
+.order-row:nth-child(3), .report-row:nth-child(3), .summary-card-row:nth-child(3) { animation-delay: 0.15s; }
+.order-row:nth-child(4), .report-row:nth-child(4), .summary-card-row:nth-child(4) { animation-delay: 0.20s; }
+.order-row:nth-child(5), .report-row:nth-child(5), .summary-card-row:nth-child(5) { animation-delay: 0.25s; }
+
+/* =========================================================
+   📱 RESPONSIVE ADJUSTMENTS
+========================================================= */
+@media (max-width: 850px) {
+  .summary-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .main-flex-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .latest-orders, .inventory-report {
+    flex: 1 1 100%;
+  }
+}

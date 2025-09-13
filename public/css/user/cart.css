@@ -1,0 +1,305 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #d3e9ef 0%, #f4e9fa 50%, #ebc3f7 100%);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* =========================
+   CART PAGE STYLES
+========================= */
+.cart-wrapper {
+  display: flex;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* LEFT SIDE - Cart Items */
+.cart-items {
+  flex: 2;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cart-items h2 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.cart-items .subtitle {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cart Item */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.item-details p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.item-actions .price {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #222;
+}
+
+/* Quantity Controls */
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-btn {
+  padding: 4px 10px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.qty-btn:hover {
+  background: #ddd;
+}
+
+.qty-input {
+  width: 50px;
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Remove number input arrows */
+.qty-input::-webkit-inner-spin-button,
+.qty-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.qty-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Remove button */
+.remove-btn {
+  background: transparent;
+  border: none;
+  color: #d9534f;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.remove-btn:hover {
+  color: #c9302c;
+}
+
+/* Checkbox */
+.item-checkbox {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Remove All */
+.remove-all {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.remove-all button {
+  padding: 8px 14px;
+  border: none;
+  background: #f44336;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.remove-all button:hover {
+  background: #d32f2f;
+}
+
+/* RIGHT SIDE - Summary */
+.cart-summary {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.summary-details div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.summary-details .total {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.checkout {
+  width: 100%;
+  padding: 12px;
+  background: #af44d2;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.checkout:hover {
+  background: #8831a5;
+}
+
+.delivery {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.delivery span{ font-weight:500; }
+
+/* cart.css */
+/* Cart Price Display */
+.price-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.original-price {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 0.9rem;
+}
+
+.discounted-price {
+    color: #e63946; /* Red-ish color for discounted price */
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.discount-badge {
+    background-color: #e63946; /* Same red-ish color */
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+/* =========================
+   MODAL
+========================= */
+.modal {
+  display: none;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(2px);
+}
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 25px 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  animation: slideIn 0.3s ease forwards;
+}
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.modal .close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #555;
+}
+.modal .close:hover {
+  color: #000;
+}
+
+
+/* Animation */
+@keyframes slideInUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
