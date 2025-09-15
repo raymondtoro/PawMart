@@ -25,6 +25,7 @@ Admin juga memiliki dashboard untuk mengelola produk, kategori, dan transaksi.
 - Checkout & pembayaran  
 - Riwayat pesanan
 - Rating produk
+- Chat
 
 ### 🛒 Admin
 - Login dashboard admin
@@ -34,6 +35,7 @@ Admin juga memiliki dashboard untuk mengelola produk, kategori, dan transaksi.
 - Manajemen status pesanan user 
 - Monitoring pesanan & transaksi
 - Notifikasi pesanan user
+- Fitur Chat
 
 ---
 
